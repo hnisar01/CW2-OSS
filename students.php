@@ -19,13 +19,14 @@
       $data['content'] .= "<form action='deletestudents.php' method='POST'>";
 
       // prepare page content
-      $data['content'] .= "<table border='1'>";
+      $data['content'] .= "<table class='table table-info' border='1'>";
       $data['content'] .= "<tr><th colspan='5' align='center'>Modules</th></tr>";
-      $data['content'] .= "<tr><th>DOB</th><th>First Name</th><th>Last Name</th>
-      <th>House</th><th>Town</th><th>County</th><th>Country</th><th>Postcodes</th></tr>";
+      $data['content'] .= "<tr><th>StudentID</th><th>DOB</th><th>First Name</th><th>Last Name</th>
+      <th>House</th><th>Town</th><th>County</th><th>Country</th><th>Postcodes</th><th>Image</th></tr>";
       // Display the modules within the html table
       while($row = mysqli_fetch_array($result)) {
             $data['content'] .= "<tr>"; 
+         $data['content'] .= "<td> {$row["studentid"]} </td>";
          $data['content'] .= "<td> {$row["dob"]} </td>";
          $data['content'] .= "<td> {$row["firstname"]} </td>";
          $data['content'] .= "<td> {$row["lastname"]} </td>";
@@ -34,12 +35,13 @@
          $data['content'] .= "<td> {$row["county"]} </td>";
          $data['content'] .= "<td> {$row["country"]} </td>";
          $data['content'] .= "<td> {$row["postcode"]} </td>";
-         $data['content'] .= "<td> <input type='checkbox' name='students[]' value='{$row["dob"]}' </td>";
+         $data['content'] .= "<td> <img src='getjpg.php?studentid=" . $row["studentid"] . "'> </td>";
+         $data['content'] .= "<td> <input type='checkbox' name='students[]' value='$row[studentid]'> </td>";
          $data['content'] .= "</tr>";
       }
       $data['content'] .= "</table>";
 
-      $data['content'] .= "<input type='submit' name='deletebutton' value='Delete' />";
+      $data['content'] .= "<input type='submit' class='btn btn-danger' name='deletebutton' value='Delete' />";
 
       $data['content'] .= "</form>";
 

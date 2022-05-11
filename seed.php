@@ -11,7 +11,7 @@
          array(
             "studentid" => 2000002,
             "password" => "test",
-            "dob" => "1999",
+            "dob" => "1999-11-10",
             "firstname" => "Bob",
             "lastname" => "Builder",
             "house" => "Rainbow Road",
@@ -23,7 +23,7 @@
          array(
             "studentid" => 2000003,
             "password" => "test",
-            "dob" => "1989",
+            "dob" => "1989-11-10",
             "firstname" => "Jeff",
             "lastname" => "Bezos",
             "house" => "Chocolate Close",
@@ -35,7 +35,7 @@
          array(
             "studentid" => 2000004,
             "password" => "test",
-            "dob" => "1979",
+            "dob" => "1979-11-10",
             "firstname" => "Postman",
             "lastname" => "Pat",
             "house" => "Coronation Cottage",
@@ -47,7 +47,7 @@
          array(
             "studentid" => 2000005,
             "password" => "test",
-            "dob" => "1969",
+            "dob" => "1969-11-10",
             "firstname" => "Elon",
             "lastname" => "Musk",
             "house" => "Billionaire Mansion",
@@ -59,7 +59,7 @@
          array(
             "studentid" => 2000006,
             "password" => "test",
-            "dob" => "2000",
+            "dob" => "2000-11-10",
             "firstname" => "Purple",
             "lastname" => "Teletubby",
             "house" => "Night Garden",
@@ -73,7 +73,7 @@
 
       foreach ($array_students as $key => $student){
          $sql = "INSERT INTO student (studentid, password, dob, firstname, lastname, house, town, county, country, postcode) 
-         VALUES ('{$student["studentid"]}','{$student["password"]}', '{$student["dob"]}', '{$student["firstname"]}', '{$student["lastname"]}', ' {$student["house"]}','{$student["town"]}', '{$student["county"]}', '{$student["country"]}','{$student["postcode"]}')";
+         VALUES ('{$student["studentid"]}','{$student["password"]}', '{$student["dob"]}', '{$student["firstname"]}', '{$student["lastname"]}',' {$student["house"]}','{$student["town"]}', '{$student["county"]}', '{$student["country"]}','{$student["postcode"]}')";
          echo $sql;
          $result = mysqli_query($conn,$sql);
       }

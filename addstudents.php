@@ -14,6 +14,9 @@ if (isset($_SESSION['id'])) {
    // if the form has been submitted
    if (isset($_POST['submit'])) {
 
+    $image = $_FILES['studentimage']['tmp_name']; 
+    $imagedata = addslashes(fread(fopen($image, "r"), filesize($image)));
+
       // build an sql statment to insert a new
       $sql = "INSERT into student set firstname ='" . $_POST['txtfirstname'] . "',";
       $sql .= "lastname ='" . $_POST['txtlastname']  . "',";
@@ -22,39 +25,50 @@ if (isset($_SESSION['id'])) {
       $sql .= "county ='" . $_POST['txtcounty']  . "',";
       $sql .= "country ='" . $_POST['txtcountry']  . "',";
       $sql .= "postcode ='" . $_POST['txtpostcode']  . "' ";
-      $sql .= "where studentid = '" . $_SESSION['id'] . "';";
+      $sql .= "image ='" .$imagedata . "'; ";
       $result = mysqli_query($conn,$sql);
 
       $data['content'] = "<p>Your details have been updated</p>";
-    };
+    }
+    
+   else{
+      $data['content'] = <<<EOD
 
-   <h2>My Details</h2>{
-   <form name="frmdetails" action="" method="post">
-   First Name :
-   <input name="txtfirstname" type="text" value="{$row['firstname']}" /><br/>
-   Surname :
-   <input name="txtlastname" type="text"  value="{$row['lastname']}" /><br/>
-   Number and Street :
-   <input name="txthouse" type="text"  value="{$row['house']}" /><br/>
-   Town :
-   <input name="txttown" type="text"  value="{$row['town']}" /><br/>
-   County :
-   <input name="txtcounty" type="text"  value="{$row['county']}" /><br/>
-   Country :
-   <input name="txtcountry" type="text"  value="{$row['country']}" /><br/>
-   Postcode :
-   <input name="txtpostcode" type="text"  value="{$row['postcode']}" /><br/>
-   <input type="submit" value="Save" name="submit"/>
-   </form>
-
-EOD;
-
+    <h2>Add A New Student</h2>
+    <form enctype="multipart/form-data" name="frmdetails" action="" method="post">
+    Student ID :
+    <input class='form-control' name="txtstudentid" type="text"  /><br/>
+    First Name :
+    <input class='form-control' name="txtfirstname" type="text"  /><br/>
+    Surname :
+    <input class='form-control' name="txtlastname" type="text"   /><br/>
+    DOB :
+    <input class='form-control' name="txtdob" type="date"  /><br/>
+    Number and Street :
+    <input class='form-control' name="txthouse" type="text"   /><br/>
+    Town :
+    <input class='form-control' name="txttown" type="text"   /><br/>
+    County :
+    <input class='form-control' name="txtcounty" type="text"   /><br/>
+    Country :
+    <input class='form-control' name="txtcountry" type="text"   /><br/>
+    Postcode :
+    <input class='form-control'  name="txtpostcode" type="text"   /><br/>
+    Image :
+    <input  type="file" name="studentimage" accept="image/jpeg" class="form-control" />
+    <input type="submit" value="Save" name="submit"/>
+    </form>
+ 
+ EOD;
    }
-
+    
    // render the template
    echo template("templates/default.php", $data);
 
-} else {
+   }
+
+
+ else {
    header("Location: index.php");
 }
 

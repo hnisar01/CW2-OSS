@@ -17,15 +17,11 @@
       }
 
       //loop over $_POST['students'] - foreach()
-      foreach (($_POST['students'])){
-         $student_array['dob', 'firstname', 'lastname', 'house', 'town', 'county', 'country', 'postcode']
+      foreach ($_POST['students'] as $id ){
+         $sql = "DELETE FROM student WHERE studentid = $id";
+         $result = mysqli_query($conn,$sql);
+      }
       
-      //build SQL query to delete item
-      $sql = "DELETE * FROM student;";
-
-      //run the query
-      $result = mysqli_query($conn,$sql);
-
       //redirect
       header("Location: students.php");
       
@@ -33,6 +29,7 @@
    } else {
       header("Location: index.php");
    }
+
 
 
 ?>
