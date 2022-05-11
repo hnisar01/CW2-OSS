@@ -3,10 +3,10 @@
 
 <form name="frmLogin" action="authenticate.php" method="post">
    Student ID:
-   <input name="txtid" type="text" />
+   <input class='form-control' name="txtid" type="text" />
    <br/>
    Password:
-   <input name="txtpwd" type="password" />
+   <input class='form-control' name="txtpwd" type="password" />
    <br/>
-   <input type="submit" value="Login" name="btnlogin" />
+   <input type="submit" class='btn btn-danger' value="Login" name="btnlogin" />
 </form>

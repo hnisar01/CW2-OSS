@@ -8,8 +8,6 @@
    // check logged in
    if (isset($_SESSION['id'])) {
 
-      var_dump($_POST['students']);
-      die();
 
       //Validation
       if(empty($_POST['students'])){

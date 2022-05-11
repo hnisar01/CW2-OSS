@@ -43,19 +43,19 @@ if (isset($_SESSION['id'])) {
    <h2>My Details</h2>
    <form name="frmdetails" action="" method="post">
    First Name :
-   <input name="txtfirstname" type="text" value="{$row['firstname']}" /><br/>
+   <input class='form-control' name="txtfirstname" type="text" value="{$row['firstname']}" /><br/>
    Surname :
-   <input name="txtlastname" type="text"  value="{$row['lastname']}" /><br/>
+   <input class='form-control' name="txtlastname" type="text"  value="{$row['lastname']}" /><br/>
    Number and Street :
-   <input name="txthouse" type="text"  value="{$row['house']}" /><br/>
+   <input class='form-control' name="txthouse" type="text"  value="{$row['house']}" /><br/>
    Town :
-   <input name="txttown" type="text"  value="{$row['town']}" /><br/>
+   <input class='form-control' name="txttown" type="text"  value="{$row['town']}" /><br/>
    County :
-   <input name="txtcounty" type="text"  value="{$row['county']}" /><br/>
+   <input class='form-control' name="txtcounty" type="text"  value="{$row['county']}" /><br/>
    Country :
-   <input name="txtcountry" type="text"  value="{$row['country']}" /><br/>
+   <input class='form-control' name="txtcountry" type="text"  value="{$row['country']}" /><br/>
    Postcode :
-   <input name="txtpostcode" type="text"  value="{$row['postcode']}" /><br/>
+   <input class='form-control' name="txtpostcode" type="text"  value="{$row['postcode']}" /><br/>
    <input type="submit" value="Save" name="submit"/>
    </form>
 
