@@ -35,7 +35,7 @@
          $data['content'] .= "<td> {$row["county"]} </td>";
          $data['content'] .= "<td> {$row["country"]} </td>";
          $data['content'] .= "<td> {$row["postcode"]} </td>";
-         $data['content'] .= "<td> <img src='getjpg.php?studentid=" . $row["studentid"] . "'> </td>";
+         $data['content'] .= "<td> <img src='getjpg.php?studentid=" . $row["studentid"] . "' height='300' width='300'> </td>";
          $data['content'] .= "<td> <input type='checkbox' name='students[]' value='$row[studentid]'> </td>";
          $data['content'] .= "</tr>";
       }

@@ -24,8 +24,8 @@ if (isset($_SESSION['id'])) {
       $sql .= "town ='" . $_POST['txttown']  . "',";
       $sql .= "county ='" . $_POST['txtcounty']  . "',";
       $sql .= "country ='" . $_POST['txtcountry']  . "',";
-      $sql .= "postcode ='" . $_POST['txtpostcode']  . "' ";
-      $sql .= "image ='" .$imagedata . "'; ";
+      $sql .= "postcode ='" . $_POST['txtpostcode']  . "', ";
+      $sql .= "image ='" . $imagedata . "'; ";
       $result = mysqli_query($conn,$sql);
 
       $data['content'] = "<p>Your details have been updated</p>";
